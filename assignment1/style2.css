@@ -1,0 +1,139 @@
+@font-face{
+        font-family: "mcfont1";
+            src: url("Minecraft.ttf") format("truetype");
+                font-weight: normal;
+                    font-style: normal;
+}
+/* PLEASE NOTE - using my custom font, please ensure you are using a brwoser that is NOT internet explorer!
+    Also - u can tick down use of comments (to some extent) :D */
+    body{
+            font-family: sans-serif;
+                background-color: black;
+                    margin: 0;
+    }
+    .mcfont1{
+            font-family: "mcfont1";
+    }
+
+    #NavBar{
+            height:10vh;
+                background-color: grey;
+                    display: flex;
+                        align-items: center;
+                            padding: 0 5vh; /* using vh so that if you zoom in/out ridculously you can still see logo/title */
+                                position: fixed;
+                                    width: 100%;
+                                        box-sizing: border-box; /* still dont know how this line works, something about adding 100%width with the padding of the elements inside, causing them to go offscreen) */
+    }
+    .emptyspace{
+            height:10vh}
+            .icon:hover{
+                    transform: scale(1.25);
+                        /* on click, dark/light mode? */
+            }
+            .title{
+                    padding: 2.5vh;
+                        font-size: 5vh;
+            }
+            .NavPageList{
+                    margin-left: auto;
+                        display: flex;
+                            gap: 5vh;
+            }
+            .NavPage{
+                    text-decoration: none;
+                        color: black;
+                            font-size: 3.5vh;
+                                padding: 2vh 3vh;
+            }
+            .NavPage:hover{
+                    transform: scale(1.25);
+                        background-color: darkgrey;
+                            /* border-radius: 0.5vh; #while i can make rounded edges for the hover effect on the other pages, it doesnt fit the "blocky" vibe */
+            }
+            /*!NO LONGER PART OF THE NAV BAR BELOW!*/
+
+            .content0{
+                    color: white;
+                        display: flex;
+                            flex-direction: column;
+                                justify-content: center;
+                                    align-items: center;
+                                        text-align: center;
+            }
+            .title2{
+                    font-size:100px;
+            }
+            .Subtext{
+                    font-size:50px;
+                        text-align: center;
+                            ;
+            }
+
+            .content1Row{
+                    color: white;
+                        display: flex;
+                            padding: 20px 50px;
+                                align-items: center;
+                                    justify-content: center;
+            }
+            .content1Row img{
+                    flex-shrink: 0;
+                        width: 40%;
+                            height: fit-content;
+                                border-radius: 5px;
+            }
+            .textbox1{
+                    width: 50%;
+                        padding: 20px 30px;
+                            font-size: 40px;
+                                color: white;
+            }
+            .textbox2{
+                    padding: 20px 30px;
+                        font-size: 40px;
+                            color: white;
+                                justify-content: center;
+                                    text-align: center;
+                                        align-items: center;
+            }
+
+            .reverse{
+                    flex-direction: row-reverse;
+            }
+            .redhighlight{
+                    color: darkred;
+            }
+
+            #ending{
+                    height:10vh;
+                        background-color: grey;
+                            display: flex;
+                                align-items: center;
+                                    padding: 0 5vh;
+            }
+
+
+            .submitButton{
+                    background-color: grey;
+                        color: black;
+                            font-size: 3.5vh;
+                                padding: 2vh 3vh;
+                                    border: none;
+                                        cursor: pointer;
+                                            border-radius: 10px;
+            }
+            .submitButton:hover{
+                    transform: scale(1.25);
+                        background-color: darkgrey;
+            }
+
+            .forminput{
+                    width: 80%;
+                        padding: 20px 30px;
+                            font-size: 40px;
+                                background-color: grey;
+                                    color: black;
+                                        border-radius: 10px;
+                                            font-family: inherit; /* to make the font of the input box the same as the rest of the text */
+            }
