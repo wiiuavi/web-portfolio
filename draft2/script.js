@@ -22,5 +22,8 @@ document.addEventListener('DOMContentLoaded', () => {
         onScroll();
         window.addEventListener('scroll', onScroll, { passive: true });
     }
+
+    //todo - collapse bookmarklets on small devices/large zoom
+
 });
             
