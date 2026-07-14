@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    const scrollZone = document.querySelector('.scroll-zone'); 
+    const scrollZone = document.querySelector('.scroll-zone');
 
     if (navbar) {
         const onScroll = () => {
@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     entry.target.classList.add('animate-in');
                 }
             });
-        }, { threshold: 0.5 }); 
+        }, { threshold: 0.1 }); 
 
         glowObserver.observe(glowText);
     }
@@ -146,11 +146,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const context = canvas.getContext("2d");
         canvas.width = 1280;
         canvas.height = 720;
-        context.imageSmoothingEnabled = false; 
+        context.imageSmoothingEnabled = false;
 
-        const totalFrames = 85; 
+        const totalFrames = 85;
         const currentFrame = index => `./media/frames/ezgif-frame-${index.toString().padStart(3, '0')}.png`;
-        
         const images = [];
         let loadedImagesCount = 0;
 
@@ -166,15 +165,13 @@ document.addEventListener('DOMContentLoaded', () => {
             images.push(img);
         }
 
-        window.addEventListener('scroll', () => {
+        const updateFrame = () => {
             const rect = scrollZone.getBoundingClientRect();
-            const totalScrollable = scrollZone.scrollHeight - window.innerHeight;
-            const scrolledInsideZone = -rect.top;
-
-            let scrollPercent = scrolledInsideZone / totalScrollable;
-            scrollPercent = Math.max(0, Math.min(0.99, scrollPercent));
-            
-            const frameIndex = Math.floor(scrollPercent * totalFrames);
+            const start = rect.top;
+            const distance = Math.max(0, -start);
+            const totalDistance = Math.max(1, scrollZone.offsetHeight - window.innerHeight);
+            const scrollPercent = Math.min(1, distance / totalDistance);
+            const frameIndex = Math.min(totalFrames - 1, Math.floor(scrollPercent * totalFrames));
 
             requestAnimationFrame(() => {
                 if (images[frameIndex]) {
@@ -182,6 +179,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     context.drawImage(images[frameIndex], 0, 0);
                 }
             });
-        });
+        };
+
+        updateFrame();
+        window.addEventListener('scroll', updateFrame, { passive: true });
     }
 });
