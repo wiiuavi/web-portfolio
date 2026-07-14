@@ -10,11 +10,18 @@
 
     <header class="navbar">
         <div class="icon">
-            <img src="media/pingu.jpg" alt="name shown if image wasnt found">
+            <img src="media/pingu.jpg" alt="Logo">
         </div>
         <div class="logo">WiiUAvi</div>
+        
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
         <nav>
-            <ul class="nav-links">
+            <ul class="nav-links" id="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#about">About</a></li>
@@ -24,47 +31,18 @@
     </header>
 
     <main class="content">
-        <div class="hero-image-container">
-            <img src="media/heroimg1.png" alt="Portfolio Hero Image">
-        </div>
+        
+        <div class="hero-image-container" id="hero-slideshow">
+            </div>
 
         <section id="home" class="hero-section">
             <h1>Welcome to My Portfolio</h1>
             <p>this is my website, here I... something something idk.</p>
-            <!-- <button id="action-btn">Click Me</button> -->
         </section>
 
         <section id="projects" class="projects-section">
             <h2>My Projects</h2>
-            <div class="projects-container">
-                <a href="#" class="project-card-link">
-                    <div class="project-card" style="--hover-shadow: rgba(143, 62, 180, 0.651);">
-                        <h3>OGminigames</h3>
-                        <p>A small plugin that i made to assist me in the revival of Minecraft's old console minigames!</p>
-                    </div>
-                </a>
-
-                <a href="https://github.com/Nishchay-Bhudia/Intelligent-Office-Surveillance-System" class="project-card-link">
-                    <div class="project-card">
-                        <h3>Chair guardian</h3>
-                        <p>Small basic (yet handy) motion detection program to make sure noone steals my chair.</p>
-                    </div>
-                </a>
-
-                <a href="#" class="project-card-link">
-                    <div class="project-card" style="--hover-shadow: rgba(139, 56, 56, 0.651);">
-                        <h3>CV</h3>
-                        <p>Not really a project, but its ntd.</p>
-                    </div>
-                </a>
-
-                <a href="#" class="project-card-link">
-                    <div class="project-card" style="--hover-shadow: rgba(139, 56, 56, 0.651);">
-                        <h3>Example proj</h3>
-                        <p>for any more things ill add here.</p>
-                    </div>
-                </a>
-
+            <div class="projects-container" id="projects-container">
             </div>
         </section>
 
@@ -75,14 +53,14 @@
                     <p>Hello! I'm a student dev passionate about building creative or unique solutions to problems.</p>
                     <p>When I'm not building my next project, you can find me solving complex problems, gaming, or learning new technologies to sharpen my skill set.</p>
                     <p>Also shoutout to AC and Saky u lot r legends</p>
+                </div>
             </div>
         </section>
 
         <section id="contact" class="contact-section">
             <h2>Let's Connect</h2>
             <div class="contact-container">
-                
-                <a href="https://github.com/wiiuavi/" target="_blank" class="contact-card github-card">
+                <a href="https://github.com/wiiuavi/" target="_blank" class="contact-card github-card mobile-hover-target">
                     <div class="contact-icon">
                         <span><img src="media/gitlogo.png" alt="GH" style="scale: 0.2;"></span>
                     </div>
@@ -90,31 +68,31 @@
                     <p>check out my projects</p>
                 </a>
 
-                <a href="https://discord.gg/Erg933reK7" target="_blank" class="contact-card discord-card">
+                <a href="https://discord.gg/Erg933reK7" target="_blank" class="contact-card discord-card mobile-hover-target">
                     <div class="contact-icon">
                         <span><img src="media/Discord-Symbol.png" alt="DC" style="scale: 0.125;"></span>
                     </div>
                     <h3>Discord</h3>
                     <p>come say hi</p>
                 </a>
-                
             </div>
         </section>
 
-        <div class="scroll-zone">
+        <div class="scroll-zone" id="scroll-zone">
             <div class="sticky-container">
                 <canvas id="animation-canvas"></canvas>
             </div>
-
-            <footer class="footer">
-                <p>&copy; 2026 MyPortfolio. All rights reserved. (whatever that means...)</p>
-            </footer>
         </div>
 
+        <section id="coming-soon" class="coming-soon-section">
+            <h2 class="glow-text">MORE COMING SOON...</h2>
+        </section>
 
     </main>
 
-    
+    <footer class="footer">
+        <p>&copy; 2026 wiiuavi. All rights reserved. (whatever that means...)</p>
+    </footer>
 
     <script src="script.js"></script>
 </body>
