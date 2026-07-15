@@ -34,6 +34,7 @@ body {
     font-family: "mcfont1";
 }
 
+/* --- Navigation & Navbar --- */
 .navbar {
     position: fixed;
     top: 0;
@@ -83,18 +84,62 @@ body {
     list-style: none;
     display: flex;
     gap: 1.5rem;
+    transition: 0.3s ease; /* Added from temp1: makes mobile slide transition smooth */
 }
 
 .nav-links a {
     color: #b0b0b0;
     text-decoration: none;
-    transition: color 0.3s;
+    transition: color 0.3s, transform 0.3s ease; /* Updated from temp1: transitions scale */
+    display: inline-block; /* Added from temp1: required for transform/scale to work */
 }
 
 .nav-links a:hover {
     color: #ffffff;
+    transform: scale(1.25); /* Added from temp1 */
 }
 
+/* --- Hamburger Menu (Added from temp1) --- */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    z-index: 1001;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    transition: 0.3s;
+}
+
+/* --- Responsive Navbar Media Queries (Added from temp1) --- */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+    .nav-links {
+        position: fixed;
+        right: -100%;
+        top: 70px;
+        flex-direction: column;
+        background-color: rgba(26,26,26,0.95);
+        width: 100%;
+        text-align: center;
+        padding: 2rem 0;
+        box-shadow: 0 10px 10px rgba(0,0,0,0.3);
+    }
+    .nav-links.active {
+        right: 0;
+    }
+    .nav-links li {
+        margin: 1.5rem 0;
+    }
+}
+
+/* --- Main Layout Content Area --- */
 .content {
     flex: 1;
     display: flex;
@@ -103,6 +148,7 @@ body {
     width: 100%;
 }
 
+/* --- Hero Image & Slideshow --- */
 .hero-image-container {
     width: 100%;
     height: 400px;
@@ -110,10 +156,20 @@ body {
     position: relative;
 }
 
+/* Slideshow Image Fade Animation CSS (Added from temp1) */
 .hero-image-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+}
+
+.hero-image-container img.active {
+    opacity: 1;
 }
 
 .hero-image-container::after {
@@ -143,6 +199,7 @@ body {
     line-height: 1.6;
 }
 
+/* --- Projects Section --- */
 .projects-section {
     padding: 60px 20px;
     width: 100%;
@@ -189,12 +246,14 @@ body {
     font-size: 0.95rem;
 }
 
-.project-card:hover {
+/* Modified to support both cursor hover and touch observer's active state */
+.project-card:hover, .project-card.hover-active {
     transform: translateY(-5px);
     border-color: #444444;
     box-shadow: 0 10px 20px var(--hover-shadow);
 }
 
+/* --- About Section --- */
 .about-section {
     padding: 60px 20px;
     width: 100%;
@@ -225,6 +284,7 @@ body {
     margin-bottom: 0;
 }
 
+/* --- Contact Section --- */
 .contact-section {
     padding: 60px 20px;
     width: 100%;
@@ -266,6 +326,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: transform 0.5s ease; /* Added from temp1: enables clean rotation animation */
 }
 
 .contact-card h3 {
@@ -279,20 +340,29 @@ body {
     font-size: 0.9rem;
 }
 
-.contact-card:hover {
+/* Updated hover and active/mobile hover targets */
+.contact-card:hover, .contact-card.hover-active {
     transform: translateY(-5px);
 }
 
-.github-card:hover {
+/* Spinning contact icon effect from temp1 */
+.contact-card:hover .contact-icon, .contact-card.hover-active .contact-icon {
+    transform: rotate(360deg);
+}
+
+.github-card:hover, .github-card.hover-active {
     border-color: #ffffff;
     box-shadow: 0 10px 25px rgba(255, 255, 255, 0.15);
 }
 
-.discord-card:hover {
+.discord-card:hover, .discord-card.hover-active {
     border-color: #5865F2;
     box-shadow: 0 10px 25px rgba(88, 101, 242, 0.35);
 }
 
+/* ==========================================================================
+   UNTOUCHED CANVAS SCROLL-ZONE STYLING
+   ========================================================================== */
 .scroll-zone {
     height: 300vh; 
     background: #000;
@@ -323,7 +393,7 @@ body {
 #animation-canvas {
     width: 100vw;   
     height: 100vh;  
-    object-fit: cover; 
+    object-fit: cover;
     image-rendering: pixelated;
     image-rendering: crisp-edges; 
 }
@@ -382,6 +452,10 @@ body {
 }
 
 @keyframes bounceSubtle {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-15px); }
+    0%, 100% { 
+        transform: translateY(0);
+    }
+    50% { 
+        transform: translateY(-15px); 
+    }
 }

@@ -1,4 +1,111 @@
+// --- 1. Projects Data (From temp1) ---
+const myProjects = [
+    {
+        title: "OGminigames",
+        description: "A small plugin that I made to assist me in the revival of Minecraft's old console minigames!",
+        url: "#",
+        shadowColor: "rgba(143, 62, 180, 0.651)"
+    },
+    {
+        title: "Chair guardian",
+        description: "Small basic (yet handy) motion detection program to make sure noone steals my chair.",
+        url: "https://github.com/Nishchay-Bhudia/Intelligent-Office-Surveillance-System",
+        shadowColor: "rgba(80, 160, 255, 0.651)"
+    },
+    {
+        title: "CV",
+        description: "Not really a project, but its ntd.",
+        url: "#",
+        shadowColor: "rgba(139, 56, 56, 0.651)"
+    },
+    {
+        title: "Example proj",
+        description: "for any more things ill add here.",
+        url: "#",
+        shadowColor: "rgba(139, 56, 56, 0.651)"
+    }
+];
+
 document.addEventListener('DOMContentLoaded', () => {
+    // --- 2. Render Projects (From temp1) ---
+    const projectsContainer = document.getElementById('projects-container');
+    if (projectsContainer) {
+        myProjects.forEach(proj => {
+            const linkWrapper = document.createElement('a');
+            linkWrapper.href = proj.url;
+            linkWrapper.className = 'project-card-link mobile-hover-target';
+            
+            linkWrapper.innerHTML = `
+                <div class="project-card" style="--hover-shadow: ${proj.shadowColor};">
+                    <h3>${proj.title}</h3>
+                    <p>${proj.description}</p>
+                </div>
+            `;
+            projectsContainer.appendChild(linkWrapper);
+        });
+    }
+
+    // --- 3. Hero Slideshow (From temp1) ---
+    const heroImages = ['media/heroimg1.png', 'media/heroimg2.png']; 
+    const slideshowContainer = document.getElementById('hero-slideshow');
+    if (slideshowContainer) {
+        heroImages.forEach((src, index) => {
+            const img = document.createElement('img');
+            img.src = src;
+            img.alt = `Hero Slide ${index + 1}`; 
+
+            if(index === 0) img.classList.add('active');
+            slideshowContainer.appendChild(img);
+        });
+
+        let currentSlide = 0;
+        const slides = slideshowContainer.querySelectorAll('img');
+        if (slides.length > 1) {
+            setInterval(() => {
+                slides[currentSlide].classList.remove('active');
+                currentSlide = (currentSlide + 1) % slides.length;
+                slides[currentSlide].classList.add('active');
+            }, 4000);
+        }
+    }
+
+    // --- 4. Hamburger Menu Navigation (From temp1) ---
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+    if (hamburger && navLinks) {
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+    }
+
+    // --- 5. Mobile Hover Effect via Intersection Observer (From temp1) ---
+    if (window.innerWidth <= 768) {
+        const hoverTargets = document.querySelectorAll('.mobile-hover-target');
+        const observerOptions = {
+            root: null,
+            rootMargin: '-40% 0px -40% 0px', 
+            threshold: 0
+        };
+        const middleObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const card = entry.target.querySelector('.project-card') || entry.target; 
+                
+                if (entry.isIntersecting) {
+                    card.classList.add('hover-active');
+                } else {
+                    card.classList.remove('hover-active');
+                }
+            });
+        }, observerOptions);
+        hoverTargets.forEach(target => middleObserver.observe(target));
+    }
+
+    // --- 6. Navbar Scroll Behavior (Untouched from temp2) ---
     const navbar = document.querySelector('.navbar');
     const zone = document.querySelector('.scroll-zone'); 
 
@@ -22,6 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
         window.addEventListener('scroll', onScroll, { passive: true });
     }
 
+    // --- 7. Canvas Sequence & Scroll/Timeline Animations (Untouched from temp2) ---
     const canvas = document.getElementById("animation-canvas");
     if (canvas && zone) {
         const context = canvas.getContext("2d");
