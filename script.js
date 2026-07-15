@@ -1,4 +1,3 @@
-// --- 1. Projects Data (From temp1) ---
 const myProjects = [
     {
         title: "OGminigames",
@@ -27,7 +26,6 @@ const myProjects = [
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
-    // --- 2. Render Projects (From temp1) ---
     const projectsContainer = document.getElementById('projects-container');
     if (projectsContainer) {
         myProjects.forEach(proj => {
@@ -45,7 +43,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- 3. Hero Slideshow (From temp1) ---
     const heroImages = ['media/heroimg1.png', 'media/heroimg2.png']; 
     const slideshowContainer = document.getElementById('hero-slideshow');
     if (slideshowContainer) {
@@ -69,7 +66,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // --- 4. Hamburger Menu Navigation (From temp1) ---
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('nav-links');
     if (hamburger && navLinks) {
@@ -83,7 +79,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- 5. Mobile Hover Effect via Intersection Observer (From temp1) ---
     if (window.innerWidth <= 768) {
         const hoverTargets = document.querySelectorAll('.mobile-hover-target');
         const observerOptions = {
@@ -105,7 +100,6 @@ document.addEventListener('DOMContentLoaded', () => {
         hoverTargets.forEach(target => middleObserver.observe(target));
     }
 
-    // --- 6. Navbar Scroll Behavior (Untouched from temp2) ---
     const navbar = document.querySelector('.navbar');
     const zone = document.querySelector('.scroll-zone'); 
 
@@ -129,7 +123,6 @@ document.addEventListener('DOMContentLoaded', () => {
         window.addEventListener('scroll', onScroll, { passive: true });
     }
 
-    // --- 7. Canvas Sequence & Scroll/Timeline Animations (Untouched from temp2) ---
     const canvas = document.getElementById("animation-canvas");
     if (canvas && zone) {
         const context = canvas.getContext("2d");
