@@ -27,14 +27,12 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    margin: 0;
 }
 
 .mcfontbody {
     font-family: "mcfont1";
 }
 
-/* --- Navigation & Navbar --- */
 .navbar {
     position: fixed;
     top: 0;
@@ -84,22 +82,21 @@ body {
     list-style: none;
     display: flex;
     gap: 1.5rem;
-    transition: 0.3s ease; /* Added from temp1: makes mobile slide transition smooth */
+    transition: 0.3s ease; 
 }
 
 .nav-links a {
     color: #b0b0b0;
     text-decoration: none;
-    transition: color 0.3s, transform 0.3s ease; /* Updated from temp1: transitions scale */
-    display: inline-block; /* Added from temp1: required for transform/scale to work */
+    transition: color 0.3s, transform 0.3s ease; 
+    display: inline-block; 
 }
 
 .nav-links a:hover {
     color: #ffffff;
-    transform: scale(1.25); /* Added from temp1 */
+    transform: scale(1.25); 
 }
 
-/* --- Hamburger Menu (Added from temp1) --- */
 .hamburger {
     display: none;
     flex-direction: column;
@@ -115,10 +112,10 @@ body {
     transition: 0.3s;
 }
 
-/* --- Responsive Navbar Media Queries (Added from temp1) --- */
 @media (max-width: 768px) {
     .hamburger {
         display: flex;
+        margin-left: auto;
     }
     .nav-links {
         position: fixed;
@@ -139,7 +136,6 @@ body {
     }
 }
 
-/* --- Main Layout Content Area --- */
 .content {
     flex: 1;
     display: flex;
@@ -148,26 +144,26 @@ body {
     width: 100%;
 }
 
-/* --- Hero Image & Slideshow --- */
 .hero-image-container {
-    width: 100%;
-    height: 400px;
-    overflow: hidden;
     position: relative;
+    width: 100%;
+    height: calc(100vh - 70px);
+    overflow: hidden;
+    background-color: var(--bg-color);
 }
 
-/* Slideshow Image Fade Animation CSS (Added from temp1) */
 .hero-image-container img {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: cover; 
     opacity: 0;
     transition: opacity 1.5s ease-in-out;
 }
 
+/* Essential: makes the current slide visible */
 .hero-image-container img.active {
     opacity: 1;
 }
@@ -199,7 +195,6 @@ body {
     line-height: 1.6;
 }
 
-/* --- Projects Section --- */
 .projects-section {
     padding: 60px 20px;
     width: 100%;
@@ -246,14 +241,12 @@ body {
     font-size: 0.95rem;
 }
 
-/* Modified to support both cursor hover and touch observer's active state */
 .project-card:hover, .project-card.hover-active {
     transform: translateY(-5px);
     border-color: #444444;
     box-shadow: 0 10px 20px var(--hover-shadow);
 }
 
-/* --- About Section --- */
 .about-section {
     padding: 60px 20px;
     width: 100%;
@@ -284,7 +277,6 @@ body {
     margin-bottom: 0;
 }
 
-/* --- Contact Section --- */
 .contact-section {
     padding: 60px 20px;
     width: 100%;
@@ -301,32 +293,55 @@ body {
 .contact-container {
     display: flex;
     justify-content: center;
-    gap: 40px;
+    gap: 30px;
     flex-wrap: wrap;
+    margin-top: 20px;
 }
 
 .contact-card {
-    background-color: #1e1e1e;
-    border: 1px solid #2d2d2d;
-    padding: 30px;
-    border-radius: 8px;
-    width: 280px;
-    text-align: center;
+    background: #222222;
+    border: 1px solid #444444;
+    border-radius: 12px;
+    padding: 20px 25px;
+    width: 240px;
     text-decoration: none;
-    color: inherit;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    color: #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    overflow: hidden;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                box-shadow 0.3s ease, 
+                border-color 0.3s ease;
 }
 
 .contact-icon {
-    width: 60px;
-    height: 60px;
-    margin: 0 auto 20px;
-    background-color: #2a2a2a;
-    border-radius: 50%;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #ffffff;
+    width: 45px;
+    height: 45px;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform 0.5s ease; /* Added from temp1: enables clean rotation animation */
+    border-radius: 50%;
+    transition: transform 0.5s ease;
+}
+
+.contact-icon span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.contact-icon img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    pointer-events: none;
 }
 
 .contact-card h3 {
@@ -340,12 +355,10 @@ body {
     font-size: 0.9rem;
 }
 
-/* Updated hover and active/mobile hover targets */
 .contact-card:hover, .contact-card.hover-active {
-    transform: translateY(-5px);
+    transform: translateY(-8px) scale(1.02);
 }
 
-/* Spinning contact icon effect from temp1 */
 .contact-card:hover .contact-icon, .contact-card.hover-active .contact-icon {
     transform: rotate(360deg);
 }
@@ -356,13 +369,480 @@ body {
 }
 
 .discord-card:hover, .discord-card.hover-active {
-    border-color: #5865F2;
+    border-color: #5865F2; 
     box-shadow: 0 10px 25px rgba(88, 101, 242, 0.35);
 }
 
-/* ==========================================================================
-   UNTOUCHED CANVAS SCROLL-ZONE STYLING
-   ========================================================================== */
+.scroll-zone {
+    height: 300vh; 
+    background: #000;
+    position: relative;
+    width: 100%;
+}
+
+.sticky-container {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+.sticky-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 20%;
+    background: linear-gradient(to bottom, var(--bg-color), transparent);
+    z-index: 5;
+    pointer-events: none;
+}
+
+#animation-canvas {
+    width: 100vw;   
+    height: 100vh;  
+    object-fit: cover;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges; 
+}
+
+.footer {
+    background-color: var(--bg-color);
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+    color: #777777;
+    border-top: 1px solid #2d2d2d;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 2;
+    width: 100%;
+}
+
+.end-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 6;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+.end-overlay.visible {
+    opacity: 1;
+}
+
+.glow-text {
+    font-size: 2.5rem;
+    color: #333; 
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 1s ease;
+    opacity: 0;
+    transform: translateY(30px);
+    font-family: "mcfont1", sans-serif;
+}
+
+.glow-text.animate-in {
+    opacity: 1;
+    color: #fff;
+    text-shadow: 0 0 12px rgba(255, 255, 255, 0.85), 0 0 25px rgba(143, 62, 180, 0.7);
+    animation: bounceSubtle 2.5s infinite ease-in-out;
+    transform: translateY(0);
+}
+
+@keyframes bounceSubtle {
+    0%, 100% { 
+        transform: translateY(0);
+    }
+    50% { 
+        transform: translateY(-15px); 
+    }
+}* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-color: #121212;
+}
+
+html, body {
+    scroll-behavior: smooth;
+}
+
+@font-face {
+    font-family: "mcfont1";
+    src: url("Minecraft.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: large;
+    background-color: var(--bg-color);
+    color: #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.mcfontbody {
+    font-family: "mcfont1";
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: rgba(26,26,26,0);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    height: 70px;
+    border-bottom: 1px solid rgba(45,45,45,0);
+    transition: background-color 300ms ease, border-color 300ms ease, box-shadow 300ms ease;
+}
+
+.navbar .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffffff;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.navbar .icon {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.navbar .icon img {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+    transform: scale(1.18);
+    transition: transform 220ms ease;
+}
+
+.navbar.scrolled {
+    background-color: rgba(26,26,26,1);
+    border-bottom-color: rgba(45,45,45,1);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.45);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    transition: 0.3s ease; 
+}
+
+.nav-links a {
+    color: #b0b0b0;
+    text-decoration: none;
+    transition: color 0.3s, transform 0.3s ease; 
+    display: inline-block; 
+}
+
+.nav-links a:hover {
+    color: #ffffff;
+    transform: scale(1.25); 
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    z-index: 1001;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    transition: 0.3s;
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+        margin-left: auto;
+    }
+    .nav-links {
+        position: fixed;
+        right: -100%;
+        top: 70px;
+        flex-direction: column;
+        background-color: rgba(26,26,26,0.95);
+        width: 100%;
+        text-align: center;
+        padding: 2rem 0;
+        box-shadow: 0 10px 10px rgba(0,0,0,0.3);
+    }
+    .nav-links.active {
+        right: 0;
+    }
+    .nav-links li {
+        margin: 1.5rem 0;
+    }
+}
+
+.content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.hero-image-container {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 70px);
+    overflow: hidden;
+    background-color: var(--bg-color);
+}
+
+.hero-image-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+}
+
+/* Essential: makes the current slide visible */
+.hero-image-container img.active {
+    opacity: 1;
+}
+
+.hero-image-container::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    background: linear-gradient(to bottom, transparent, var(--bg-color));
+}
+
+.hero-section {
+    text-align: center;
+    padding: 60px 20px;
+    max-width: 800px;
+}
+
+.hero-section h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #ffffff;
+}
+
+.hero-section p {
+    color: #a0a0a0;
+    line-height: 1.6;
+}
+
+.projects-section {
+    padding: 60px 20px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.projects-section h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.5rem;
+    color: #ffffff;
+}
+
+.projects-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    width: 100%;
+}
+
+.project-card-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.project-card {
+    background-color: #1e1e1e;
+    border: 1px solid #2d2d2d;
+    padding: 30px;
+    border-radius: 8px;
+    height: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.project-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #ffffff;
+}
+
+.project-card p {
+    color: #a0a0a0;
+    line-height: 1.5;
+    font-size: 0.95rem;
+}
+
+.project-card:hover, .project-card.hover-active {
+    transform: translateY(-5px);
+    border-color: #444444;
+    box-shadow: 0 10px 20px var(--hover-shadow);
+}
+
+.about-section {
+    padding: 60px 20px;
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+}
+
+.about-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #ffffff;
+}
+
+.about-container {
+    background-color: #1e1e1e;
+    border: 1px solid #2d2d2d;
+    padding: 40px;
+    border-radius: 8px;
+}
+
+.about-bio p {
+    color: #a0a0a0;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.about-bio p:last-child {
+    margin-bottom: 0;
+}
+
+.contact-section {
+    padding: 60px 20px;
+    width: 100%;
+    max-width: 800px;
+}
+
+.contact-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #ffffff;
+}
+
+.contact-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.contact-card {
+    background: #222222;
+    border: 1px solid #444444;
+    border-radius: 12px;
+    padding: 20px 25px;
+    width: 240px;
+    text-decoration: none;
+    color: #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    overflow: hidden;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                box-shadow 0.3s ease, 
+                border-color 0.3s ease;
+}
+
+.contact-icon {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #ffffff;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: transform 0.5s ease;
+}
+
+.contact-icon span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.contact-icon img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    pointer-events: none;
+}
+
+.contact-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.contact-card p {
+    color: #a0a0a0;
+    font-size: 0.9rem;
+}
+
+.contact-card:hover, .contact-card.hover-active {
+    transform: translateY(-8px) scale(1.02);
+}
+
+.contact-card:hover .contact-icon, .contact-card.hover-active .contact-icon {
+    transform: rotate(360deg);
+}
+
+.github-card:hover, .github-card.hover-active {
+    border-color: #ffffff;
+    box-shadow: 0 10px 25px rgba(255, 255, 255, 0.15);
+}
+
+.discord-card:hover, .discord-card.hover-active {
+    border-color: #5865F2; 
+    box-shadow: 0 10px 25px rgba(88, 101, 242, 0.35);
+}
+
 .scroll-zone {
     height: 300vh; 
     background: #000;
