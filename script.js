@@ -1,7 +1,7 @@
 const myProjects = [
     {
         title: "OGminigames",
-        description: "A small plugin that I made to assist me in the revival of Minecraft's old console minigames!",
+        description: "A small plugin that I made to assist me in the revival of Minecraft's old console minigames! (This will lead nowhere, is private for now)",
         url: "#",
         shadowColor: "rgba(143, 62, 180, 0.651)"
     },
@@ -9,20 +9,51 @@ const myProjects = [
         title: "Chair guardian",
         description: "Small basic (yet handy) motion detection program to make sure noone steals my chair.",
         url: "https://github.com/Nishchay-Bhudia/Intelligent-Office-Surveillance-System",
-        shadowColor: "rgba(80, 160, 255, 0.651)"
+        shadowColor: "rgba(80, 255, 80, 0.65)"
     },
     {
         title: "CV",
-        description: "Not really a project, but its ntd.",
+        description: "Not really a project, but its ntd. (This will lead nowhere)",
         url: "#",
         shadowColor: "rgba(139, 56, 56, 0.651)"
     },
     {
+        title: "MyEyesOnly",
+        description: "A file encryption/splitting software, to make it easier to upload things securely online",
+        url: "https://github.com/wiiuavi/MyEyesOnly",
+        shadowColor: "rgba(30, 177, 182, 0.65)"
+    },
+    {
+        title: "HopefullySecureP2P",
+        description: "A python chatbox program, encrypting messages when talking to anyone on the network. This lay the foundation for MyEyesOnly",
+        url: "https://github.com/wiiuavi/hopefully-secure-P2P",
+        shadowColor: "rgba(233, 0, 0, 0.65)"
+    },
+    {
+        title: "RestarauntModernizer",
+        description: "Project to make it very easy for restaraunts to implement their own digital menu system using QR codes!",
+        url: "https://github.com/wiiuavi/hopefully-secure-P2P",
+        shadowColor: "rgba(0, 247, 255, 0.65)"
+    },
+    {
+        title: "InventoryTab",
+        description: "This chrome extension turns your new-tab into a minecraft inventory! with more than 30 bookmark slots, you can carry every website you need!",
+        url: "https://github.com/wiiuavi/hopefully-secure-P2P",
+        shadowColor: "rgba(30, 40, 182, 0.65)"
+    },
+    {
+        title: "MyPortfolio",
+        description: "The github repo behind this very site!",
+        url: "https://github.com/wiiuavi/web-portfolio",
+        shadowColor: "rgba(233, 22, 222, 0.65)"
+    },
+    {
         title: "Example proj",
-        description: "for any more things ill add here.",
+        description: "for any more things ill add here. (This will lead nowhere)",
         url: "#",
         shadowColor: "rgba(139, 56, 56, 0.651)"
     }
+    
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
