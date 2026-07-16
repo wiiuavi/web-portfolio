@@ -1,3 +1,12 @@
+const hoverSound = new Audio('media/MChover.mp3');
+const clickSound = new Audio('media/MCclick.mp3');
+
+const playSound = (audio) => {
+    const soundClone = audio.cloneNode(true);
+    soundClone.play().catch(() => {
+    });
+};
+
 const myProjects = [
     {
         title: "OGminigames",
@@ -53,7 +62,6 @@ const myProjects = [
         url: "#",
         shadowColor: "rgba(139, 56, 56, 0.651)"
     }
-    
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -70,9 +78,19 @@ document.addEventListener('DOMContentLoaded', () => {
                     <p>${proj.description}</p>
                 </div>
             `;
+
+            linkWrapper.addEventListener('mouseenter', () => playSound(hoverSound));
+            linkWrapper.addEventListener('click', () => playSound(clickSound));
+
             projectsContainer.appendChild(linkWrapper);
         });
     }
+
+    const interactiveElements = document.querySelectorAll('.nav-links a, #hamburger, .contact-card');
+    interactiveElements.forEach(el => {
+        el.addEventListener('mouseenter', () => playSound(hoverSound));
+        el.addEventListener('click', () => playSound(clickSound));
+    });
 
     const heroImages = ['media/heroimg1.png', 'media/heroimg2.png']; 
     const slideshowContainer = document.getElementById('hero-slideshow');
@@ -122,6 +140,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 const card = entry.target.querySelector('.project-card') || entry.target; 
                 
                 if (entry.isIntersecting) {
+                    if (!card.classList.contains('hover-active')) {
+                        playSound(hoverSound);
+                    }
                     card.classList.add('hover-active');
                 } else {
                     card.classList.remove('hover-active');
